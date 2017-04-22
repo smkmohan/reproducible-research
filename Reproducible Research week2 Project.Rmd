@@ -3,7 +3,6 @@ title: "Reproducible Research-week2 Project"
 author: "Mohankumar Subbiah"
 date: "April 22, 2017"
 output: html_document
-
 ---
 
 ```{r setup, include=FALSE}
