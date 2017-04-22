@@ -67,7 +67,7 @@ activity <- mutate(activity, date = as.Date(as.character(date), "%Y-%m-%d"))
 ####What is mean total number of steps taken per day?
 
 1. Calculate the total number of steps taken per day.
-   We can either use group_by and summarise functions of dplyr package or use aggregate          function to arrive our aim. Here, we use the later one.
+   We can either use group_by and summarise functions of dplyr package or use aggregate          function to arrive our aim. Here, we   use the later one.
 
 ```
 steps_per_day <- aggregate(steps ~ date, data = activity, sum, na.rm = TRUE)
@@ -98,7 +98,6 @@ Plot2
 ![plot 2](PLOTS/Rplot2_Steps.png)
 
 3. Calculate and report the mean and median of the total number of steps taken per day.
-
 The group_by and summarise/summarize functions of package dplyr are more convinent here.
 
 ```
@@ -154,7 +153,7 @@ Note that there are a number of days/intervals where there are missing values (C
 
 1. Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs).
 
-We have a first check on every column of the data activity, aiming to detect the NA values.
+   We have a first check on every column of the data activity, aiming to detect the NA values.
 
 ```
 any(is.na(activity$steps))
