@@ -16,7 +16,6 @@ knitr::opts_chunk$set(echo = TRUE)
 #### Loading and preprocessing the data
 #### Show any code that is needed to
 
-
 #### 1. Load the data (i.e. read.csv()).
 
 From the instructions, we knew the first line of the file "activity.csv" is its variable names and na.strings should be setted as "NA".
