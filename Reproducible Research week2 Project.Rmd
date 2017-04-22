@@ -87,6 +87,7 @@ barplot(example, col = "blue", main = "Plot with barplot()")  # plot by barplot
 ```
 
 Plot1
+![plot 1]PLOTS/RPlot1_Hist_and_barplot.png
 
 Now we draw a histogram of the total number of steps taken each day to investigate the steps distributions.
 
@@ -107,7 +108,7 @@ mean_median_steps_per_day <- group_by(activity, date) %>%
 head(mean_median_steps_per_day)
 ```
 ```
-## # A tibble: 6 × 3
+## # A tibble: 6 Ã— 3
 ##         date     mean median
 ##       <date>    <dbl>  <dbl>
 ## 1 2012-10-01      NaN     NA
@@ -328,7 +329,7 @@ sum_mean_median_day <- group_by(activity_copy, date) %>%
               mean_steps = mean(steps),
               median_steps = median(steps))
 sum_mean_median_day
-## # A tibble: 61 × 4
+## # A tibble: 61 Ã— 4
 ##          date sum_steps mean_steps median_steps
 ##        <date>     <dbl>      <dbl>        <dbl>
 ## 1  2012-10-01  10766.19   37.38260     34.11321
