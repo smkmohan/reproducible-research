@@ -3,7 +3,6 @@ title: "Reproducible Research-week2 Project"
 author: "Mohankumar Subbiah"
 date: "April 22, 2017"
 output: html_document
-
 ---
 
 ```{r setup, include=FALSE}
@@ -67,7 +66,7 @@ activity <- mutate(activity, date = as.Date(as.character(date), "%Y-%m-%d"))
 ####What is mean total number of steps taken per day?
 
 1. Calculate the total number of steps taken per day.
-   We can either use group_by and summarise functions of dplyr package or use aggregate          function to arrive our aim. Here, we use the later one.
+   We can either use group_by and summarise functions of dplyr package or use aggregate          function to arrive our aim. Here, we   use the later one.
 
 ```
 steps_per_day <- aggregate(steps ~ date, data = activity, sum, na.rm = TRUE)
@@ -87,6 +86,7 @@ barplot(example, col = "blue", main = "Plot with barplot()")  # plot by barplot
 ```
 
 Plot1
+![plot 1](PLOTS/RPlot1_Hist_and_barplot.png)
 
 Now we draw a histogram of the total number of steps taken each day to investigate the steps distributions.
 
@@ -94,9 +94,9 @@ Now we draw a histogram of the total number of steps taken each day to investiga
 hist(steps_per_day$steps, main = "Histogram of the total steps taken per day", xlab = "Steps", breaks = 16, col = "wheat")
 ```
 Plot2
+![plot 2](PLOTS/Rplot2_Steps.png)
 
 3. Calculate and report the mean and median of the total number of steps taken per day.
-
 The group_by and summarise/summarize functions of package dplyr are more convinent here.
 
 ```
@@ -107,7 +107,7 @@ mean_median_steps_per_day <- group_by(activity, date) %>%
 head(mean_median_steps_per_day)
 ```
 ```
-## # A tibble: 6 × 3
+## # A tibble: 6 Ã— 3
 ##         date     mean median
 ##       <date>    <dbl>  <dbl>
 ## 1 2012-10-01      NaN     NA
@@ -136,6 +136,7 @@ with(interval_steps,
           ylab = "Average number of steps taken per time interval"))
 ```
 Plot3
+![plot 3](PLOTS/Rplot3_Steps_per_time.png)
 
 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 ```
@@ -151,7 +152,7 @@ Note that there are a number of days/intervals where there are missing values (C
 
 1. Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs).
 
-We have a first check on every column of the data activity, aiming to detect the NA values.
+   We have a first check on every column of the data activity, aiming to detect the NA values.
 
 ```
 any(is.na(activity$steps))
@@ -328,7 +329,7 @@ sum_mean_median_day <- group_by(activity_copy, date) %>%
               mean_steps = mean(steps),
               median_steps = median(steps))
 sum_mean_median_day
-## # A tibble: 61 × 4
+## # A tibble: 61 Ã— 4
 ##          date sum_steps mean_steps median_steps
 ##        <date>     <dbl>      <dbl>        <dbl>
 ## 1  2012-10-01  10766.19   37.38260     34.11321
@@ -361,7 +362,12 @@ hist(sum_mean_median_day$sum_steps, main = "Histogram of the total steps per day
 hist(steps_per_day$steps, main = "Histogram of the total steps per day BEFORE missing data filling", xlab = "Steps", breaks = 16, col = "wheat", ylim = c(0,15))
 ```
 
-Plots4 and 5
+Plot 4 
+![plot 4](PLOTS/Rplot4_Steps_After_missing.png)
+
+Plot 5
+![plot 5](PLOTS/Rplot5_Steps_before_missing.png)
+
 
 Next we plot the mean steps taken per day AFTER and BEFORE the filling of missing data.
 
@@ -371,6 +377,8 @@ points(mean_median_steps_per_day$date, mean_median_steps_per_day$mean, pch = 4)
 legend("topleft", pch = c(1,4), col = c("red", "black"), legend = c("before", "after"))
 ```
 Plot6
+![plot 6](PLOTS/Rplot6_before_and_after.png)
+
 
 The red vertical lines without crosses on the top indicates the missing in the original data.
 
@@ -429,6 +437,7 @@ g <- ggplot(average_steps_state, aes(x = interval, y = average_steps)) +
 g
 ```
 Plot7
+![plot 7](PLOTS/Rplot7.png)
 
 Let's plot above picture again using lattice system.
 
@@ -438,3 +447,4 @@ xyplot(average_steps ~ interval | state, data = average_steps_state, type = "l",
 
 ```
 Plot8
+![plot 8](PLOTS/Rplot8.png)
